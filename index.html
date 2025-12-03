@@ -208,9 +208,8 @@ body,html {
 }
 </style>
 
-
-<div class="portfolio-section">
  <h2>Portfolio</h2>
+<div class="portfolio-section">
     <!-- Portfolio 1 -->
     <div class="portfolio-card">
         <div class="portfolio-title">Nutrition Information Systems</div>
@@ -286,26 +285,31 @@ body,html {
             </ul>
         </section>
 
+
+
+
+
+
+    </main>
+</div>
 <!-- ======= SLIDESHOW: Replace img1.jpg...img6.jpg with your images ======= -->
 <style>
 /* Slideshow container */
-.slideshow {
-  width: 100%;
-  max-width: 100%;
-  margin: 20px 0;
-  border-radius: 10px;
-  position: relative;
-  border-radius: 10px;
+    .slideshow {
+  width: 85%;              /* reduce box size */
+  max-width: 650px;        /* adjust as you like */
+  height: 350px;           /* fixed height for all images */
+  margin: 20px auto;
   overflow: hidden;
-  background: rgba(255,255,255,0.02);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  border-radius: 10px;
 }
 
-/* Slides (images) */
-.slides {
-  display: flex;
-  transition: transform 0.6s cubic-bezier(.22,.9,.34,1);
-  will-change: transform;
+/* FORCE ALL IMAGES TO SAME SIZE */
+.slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* IMPORTANT: crops & fits cleanly */
+  object-position: center; /* keeps center visible */
 }
 
 /* Single slide */
@@ -398,32 +402,32 @@ body,html {
 
 <div class="slideshow" id="slideshow" aria-label="Portfolio screenshots slideshow">
   <div class="slides" id="slides">
-    <figure class="slide" data-caption="Nutrition Dashboard — Province overview">
+    <figure class="slide" data-caption="NIPN Intelligence - AI for Nutrition Data">
       <img src="img1.png" alt="Nutrition Dashboard screenshot">
       <figcaption class="caption">NIPN Intelligence - AI for Nutrition Data</figcaption>
     </figure>
 
-    <figure class="slide" data-caption="District Scorecard — Prioritisation">
+    <figure class="slide" data-caption="Provincial Nutrition Analysis Dashboard">
       <img src="img2.png" alt="District scorecard screenshot">
       <figcaption class="caption">Provincial Nutrition Analysis Dashboard</figcaption>
     </figure>
 
-    <figure class="slide" data-caption="BMS Monitoring (ONA) — Mobile form">
+    <figure class="slide" data-caption="DHIS2 Nutrition Scorecard">
       <img src="img3.png" alt="BMS monitoring mobile form">
       <figcaption class="caption">DHIS2 Nutrition Scorecard</figcaption>
     </figure>
 
-    <figure class="slide" data-caption="Superset Analytics Portal — Trends">
+    <figure class="slide" data-caption="Mobile-based Breast-Milk Substitutes Monitoring Tool">
       <img src="img4.png" alt="Superset analytics screenshot">
       <figcaption class="caption">Mobile-based Breast-Milk Substitutes Monitoring Tool</figcaption>
     </figure>
 
-    <figure class="slide" data-caption="Infographic — Policy brief snapshot">
+    <figure class="slide" data-caption="National Multi-Sector Nutrition Information System & Dashboard">
       <img src="img5.png" alt="Infographic screenshot">
       <figcaption class="caption">National Multi-Sector Nutrition Information System & Dashboard</figcaption>
     </figure>
 
-    <figure class="slide" data-caption="Scorecard PDF export — Quarterly">
+    <figure class="slide" data-caption="DHIS2 IMAM Tracker & Individual Child Dashbaord">
       <img src="img6.png" alt="Scorecard export screenshot">
       <figcaption class="caption">DHIS2 IMAM Tracker & Individual Child Dashbaord</figcaption>
     </figure>
@@ -534,14 +538,9 @@ body,html {
   window._mySlideshow = { goTo, next, prev, startTimer, stopTimer };
 })();
 </script>
-
-
-
-
-    </main>
-</div>
-
+    
 </body>
 </html>
+
 
 
