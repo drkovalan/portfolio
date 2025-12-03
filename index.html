@@ -1,235 +1,516 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Dr. Kovalan Kumaran</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            background: #f9fafc;
-            color: #333;
-            line-height: 1.6;
-        }
-        .container {
-            display: flex;
-            flex-direction: row;
-            min-height: 100vh;
-        }
-        .sidebar {
-            width: 30%;
-            background: #ffffff;
-            padding: 30px;
-            position: fixed;
-            height: 100%;
-            overflow-y: auto;
-            box-shadow: 2px 0 8px rgba(0,0,0,0.05);
-        }
-        .content {
-            width: 70%;
-            margin-left: 30%;
-            padding: 30px;
-        }
-        h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-        h2 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #34495e;
-        }
-        section {
-            margin-bottom: 50px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Kovalan | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
 
-        /* Slideshow */
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .slides {
-            display: none;
-            width: 100%;
-            border-radius: 8px;
-            animation: fade 1.5s;
-        }
-        @keyframes fade {
-            from {opacity: .4} 
-            to {opacity: 1}
-        }
-        .caption {
-            color: #fff;
-            font-size: 18px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-            background: rgba(0,0,0,0.4);
-        }
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            color: #fff;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background: rgba(0,0,0,0.5);
-        }
-        .next { right: 0; border-radius: 3px 0 0 3px; }
-        .prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
-        .dots { text-align: center; margin-top: 10px; }
-        .dot {
-            cursor: pointer;
-            height: 12px;
-            width: 12px;
-            margin: 0 4px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-        .active, .dot:hover { background-color: #717171; }
+  /* ----- GLOBAL RESET ----- */
+  body,html {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    scroll-behavior: smooth;
+    background: #0b0f19;
+    color: #e6e6e6;
+  }
 
-        /* Portfolio cards */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-        .card h3 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
+  /* ----- LAYOUT ----- */
+  .container {
+    display: flex;
+    min-height: 100vh;
+  }
 
-        @media (max-width: 768px) {
-            .container { flex-direction: column; }
-            .sidebar { width: 100%; position: relative; height: auto; }
-            .content { width: 100%; margin-left: 0; }
-        }
-    </style>
+  /* ----- LEFT PANEL ----- */
+  .left-panel {
+    width: 300px;
+    min-height: 100vh;
+    padding: 40px 25px;
+    background: #0f1629;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .profile {
+    width: 140px;
+    height: 140px;
+    background: url("profile.png") center/cover;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0,255,200,0.4);
+    margin-bottom: 20px;
+  }
+
+  .name {
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .role {
+    font-size: 1rem;
+    color: #76ffd8;
+    margin-bottom: 20px;
+  }
+
+  .contact p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+  }
+
+  .contact i {
+    margin-right: 10px;
+    color: #00ffc8;
+  }
+
+  /* ----- RIGHT PANEL ----- */
+  .right-panel {
+    margin-left: 300px;
+    padding: 50px 30px;
+    width: calc(100% - 300px);
+  }
+
+  /* ----- SECTIONS ----- */
+  .section {
+    padding: 40px;
+    margin-bottom: 40px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 25px rgba(0,255,180,0.05);
+    animation: slideUp 0.8s ease forwards;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #00ffcc;
+  }
+
+  .section ul {
+    padding-left: 20px;
+    line-height: 1.7;
+  }
+
+  .section p {
+    line-height: 1.7;
+  }
+
+  /* ----- MOBILE RESPONSIVE ----- */
+  @media(max-width: 900px) {
+    .left-panel {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        padding-bottom: 20px;
+    }
+
+    .right-panel {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+  }
+  </style>
+  <style>
+   
+  .portfolio-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .portfolio-card {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 20px rgba(0,255,180,0.07);
+    transition: 0.3s ease;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(0,255,200,0.18);
+  }
+
+  .portfolio-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #00ffcc;
+  }
+
+  .portfolio-card ul {
+    padding-left: 18px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #d7d7d7;
+  }
+
+  .portfolio-card ul li {
+    margin-bottom: 6px;
+  }
+  </style>
+  <style>
+  /* Slideshow container */
+    .slideshow {
+  width: 85%;              /* reduce box size */
+  max-width: 650px;        /* adjust as you like */
+  height: 350px;           /* fixed height for all images */
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  }
+
+  /* FORCE ALL IMAGES TO SAME SIZE */
+  .slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* IMPORTANT: crops & fits cleanly */
+  object-position: center; /* keeps center visible */
+  }
+
+  /* Single slide */
+  .slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  }
+
+  /* Image styling */
+  .slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  object-fit: cover;
+  }
+
+  /* Caption */
+  .caption {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  color: #e6ffe9;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25));
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  backdrop-filter: blur(4px);
+  }
+
+  /* Controls */
+  .ctrl {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform .15s ease, background .15s ease;
+  z-index: 10;
+  }
+  .ctrl:hover { transform: translateY(-50%) scale(1.06); background: rgba(0,0,0,0.6); }
+
+  .prev { left: 14px; }
+  .next { right: 14px; }
+
+  /* Dots / indicators */
+  .dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+  display: flex;
+  gap: 8px;
+  z-index: 12;
+  }
+  .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  cursor: pointer;
+  transition: background .15s ease, transform .15s ease;
+  }
+  .dot.active { background: #00ffd6; transform: scale(1.15); }
+
+  /* Small responsive tweak */
+  @media (max-width: 720px) {
+  .caption { left: 12px; right: 12px; font-size: 0.9rem; bottom: 12px; }
+  .ctrl { width: 40px; height: 40px; }
+  }
+
+  /* Optional subtle fade overlay for futuristic look */
+  .slideshow::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,255,200,0.02), rgba(0,0,0,0.06));
+  }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <h1>Dr. Kovalan Kumaran</h1>
-            <p>Email: drkovalan@gmail.com</p>
-            <p>Location: Vientiane, Lao PDR</p>
-            <p>I build systems that transform raw data into actionable insights for government leaders, enabling evidence-based policies and impactful results for children and communities.</p>
-        </aside>
+  <div class="container">
+    <aside class="left-panel">
+      <div class="profile"></div>
+      <div class="name">
+        Dr. Kovalan Kumaran
+      </div>
+      <div class="role">
+        Nutrition Data & AI Expert<br>
+        Governance & Systems
+      </div>
+      <div class="contact">
+        <p>drkovalan@gmail.com</p>
+        <p>Vientiane, Lao PDR</p>
+      </div>
+    </aside>
+    <main class="right-panel">
+      <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>I build systems that transform raw data into actionable insights for government leaders, enabling evidence-based policies and impactful results for children and communities.</p>
+      </section>
+      <section id="achievements" class="section">
+        <h2>Initiatives</h2>
+        <ul>
+          <li>National Information Platforms for Nutrition (NIPN), Lao PDR</li>
+          <li>Strengthening national nutrition information systems (EC-NIS), Lao PDR</li>
+          <li>Scaling Up Nutrition (SUN), Malawi</li>
+          <li>Proactive and Optimum of Children, through Social Household Approach for Nutrition (POSHAN), India</li>
+        </ul>
+      </section>
+      <div class="portfolio-section">
+        <div class="portfolio-card">
+          <div class="portfolio-title">
+            Nutrition Information Systems
+          </div>
+          <ul>
+            <li>DHIS2 Nutrition Module</li>
+            <li>DHIS2 IMAM Tracker</li>
+            <li>Nutrition Multi-Sector Nutrition Information System</li>
+            <li>Nutrition Resource Tracking System</li>
+            <li>Fortification Information System</li>
+            <li>Community (care group) nutrition information system</li>
+          </ul>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-title">
+            Websites, Dashboards & Scorecard
+          </div>
+          <ul>
+            <li>NIPN Website, Lao PDR</li>
+            <li>Nutrition website, Malawi</li>
+            <li>Breast-Milk Substitutes Dashboard</li>
+            <li>USI QA/QC Dashboard</li>
+            <li>DHIS2 Dashboard</li>
+            <li>Child Tracker Dashboard</li>
+            <li>Nutrition Scorecard</li>
+          </ul>
+        </div>
+        <div class="portfolio-card">
+          <div class="portfolio-title">
+            AI & Mobile-based Apps
+          </div>
+          <ul>
+            <li>AI agent for nutrition data</li>
+            <li>Nutrition commodities tracking system (RAPID PRO)</li>
+            <li>BMS monitoring tool (ONA)</li>
+            <li>Salt iodization monitoring tool (ONA)</li>
+            <li>Surveillance tool (ONA)</li>
+            <li>DHIS2 Mobile App</li>
+          </ul>
+        </div>
+      </div>
+      <section id="experience" class="section">
+        <h2>Experience</h2>
+        <ul>
+          <li>Nutrition Specialist - Output 1 Manager for Data & Governance, Lao PDR Jul 2024 - Present</li>
+          <li>Nutrition Information Systems Consultant, UNICEF Lao PDR Jan 2021 – Jun 2024</li>
+          <li>Nutrition Specialist – Scaling Up Nutrition, UNICEF Malawi Jan 2018 - Dec 2019</li>
+          <li>Monitoring & Evaluation Consultant for Nutrition, UNICEF Malawi Jan 2016 - Dec 2017</li>
+          <li>State MIS & Data Associate, GAIN India Sep 2015 – Dec 2015</li>
+          <li>Knowledge Management Consultant for Nutrition, UNICEF India Sep 2014 – Aug 2015</li>
+          <li>Senior Health Information Systems Officer, HISP India Jul 2011 – Sep 2014</li>
+          <li>Health Information Systems Internee, HISP India Jan 2011 - May 2011</li>
+        </ul>
+      </section>
+      <section id="education" class="section">
+        <h2>Education</h2>
+        <ul>
+          <li>Master of Public Health - Specialisation Information Technology In Healthcare<br>
+          SRM University, Tamil Nadu<br>
+          (2009 – 2011)</li>
+          <li>Bachelor’s in Homeopathic Medicine & Surgery<br>
+          Dr. M.G.R. Medical University, Tamil Nadu<br>
+          (2003 – 2009)</li>
+        </ul>
+      </section>
+      <div class="slideshow" id="slideshow" aria-label="Portfolio screenshots slideshow">
+        <div class="slides" id="slides">
+          <figure class="slide" data-caption="NIPN Intelligence - AI for Nutrition Data">
+            <img src="img1.png" alt="Nutrition Dashboard screenshot">
+            <figcaption class="caption">
+              NIPN Intelligence - AI for Nutrition Data
+            </figcaption>
+          </figure>
+          <figure class="slide" data-caption="Provincial Nutrition Analysis Dashboard">
+            <img src="img2.png" alt="District scorecard screenshot">
+            <figcaption class="caption">
+              Provincial Nutrition Analysis Dashboard
+            </figcaption>
+          </figure>
+          <figure class="slide" data-caption="DHIS2 Nutrition Scorecard">
+            <img src="img3.png" alt="BMS monitoring mobile form">
+            <figcaption class="caption">
+              DHIS2 Nutrition Scorecard
+            </figcaption>
+          </figure>
+          <figure class="slide" data-caption="Mobile-based Breast-Milk Substitutes Monitoring Tool">
+            <img src="img4.png" alt="Superset analytics screenshot">
+            <figcaption class="caption">
+              Mobile-based Breast-Milk Substitutes Monitoring Tool
+            </figcaption>
+          </figure>
+          <figure class="slide" data-caption="National Multi-Sector Nutrition Information System &amp; Dashboard">
+            <img src="img5.png" alt="Infographic screenshot">
+            <figcaption class="caption">
+              National Multi-Sector Nutrition Information System & Dashboard
+            </figcaption>
+          </figure>
+          <figure class="slide" data-caption="DHIS2 IMAM Tracker &amp; Individual Child Dashbaord">
+            <img src="img6.png" alt="Scorecard export screenshot">
+            <figcaption class="caption">
+              DHIS2 IMAM Tracker & Individual Child Dashbaord
+            </figcaption>
+          </figure>
+        </div><button class="ctrl prev" id="prevBtn" aria-label="Previous slide">&lt;</button> <button class="ctrl next" id="nextBtn" aria-label="Next slide">&gt;</button>
+        <div class="dots" id="dots"></div>
+      </div>
+      <script>
+      (function () {
+      const slidesEl = document.getElementById('slides');
+      const slides = Array.from(slidesEl.querySelectorAll('.slide'));
+      const dotsContainer = document.getElementById('dots');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const slideshow = document.getElementById('slideshow');
 
-        <main class="content">
-            <section>
-                <h2>About Me</h2>
-                <p>Nutrition Data & AI Expert with extensive experience in designing and implementing digital solutions to strengthen nutrition governance and enable data-driven decision-making.</p>
-            </section>
+      let index = 0;
+      const total = slides.length;
+      let autoplayInterval = 4000; // ms
+      let timer = null;
+      let startX = 0;
+      let endX = 0;
 
-            <section>
-                <h2>Portfolio</h2>
-                <div class="portfolio-grid">
-                    <div class="card"><h3>Websites & Dashboards</h3><p>Nutrition Website, Scorecards, BMS Dashboard</p></div>
-                    <div class="card"><h3>Nutrition Information Systems</h3><p>DHIS2 Modules, NNIS, Resource Tracking</p></div>
-                    <div class="card"><h3>Mobile Apps & AI</h3><p>AI Agent, RapidPro Tracking, Mobile Data Tools</p></div>
-                </div>
-            </section>
+      // build dots
+      slides.forEach((s, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+      });
 
-            <section>
-                <h2>Slideshow</h2>
-                <div class="slideshow-container">
-                    <div class="slide-wrapper">
-                        <img class="slides" src="img1.jpg" alt="Slide 1">
-                        <div class="caption">Nutrition Dashboard Overview</div>
-                    </div>
-                    <div class="slide-wrapper">
-                        <img class="slides" src="img2.jpg" alt="Slide 2">
-                        <div class="caption">Scorecard for Policy Monitoring</div>
-                    </div>
-                    <div class="slide-wrapper">
-                        <img class="slides" src="img3.jpg" alt="Slide 3">
-                        <div class="caption">AI-driven Data Quality System</div>
-                    </div>
-                    <div class="slide-wrapper">
-                        <img class="slides" src="img4.jpg" alt="Slide 4">
-                        <div class="caption">Mobile Commodity Tracking</div>
-                    </div>
-                    <div class="slide-wrapper">
-                        <img class="slides" src="img5.jpg" alt="Slide 5">
-                        <div class="caption">Fortification Information System</div>
-                    </div>
-                    <div class="slide-wrapper">
-                        <img class="slides" src="img6.jpg" alt="Slide 6">
-                        <div class="caption">Nutrition Governance Toolkit</div>
-                    </div>
+      function update() {
+      slidesEl.style.transform = `translateX(-${index * 100}%)`;
+      // update dots
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      }
 
-                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                    <a class="next" onclick="plusSlides(1)">❯</a>
-                </div>
-                <div class="dots">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                    <span class="dot" onclick="currentSlide(5)"></span>
-                    <span class="dot" onclick="currentSlide(6)"></span>
-                </div>
-            </section>
-        </main>
-    </div>
+      function goTo(i) {
+      index = (i + total) % total;
+      update();
+      restartTimer();
+      }
 
-    <script>
-        let slideIndex = 0;
-        showSlides();
+      function next() { goTo(index + 1); }
+      function prev() { goTo(index - 1); }
 
-        function showSlides() {
-            let i;
-            let slides = document.getElementsByClassName("slides");
-            let dots = document.getElementsByClassName("dot");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1; }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " active";
-            setTimeout(showSlides, 4000); // Change image every 4 seconds
-        }
+      // autoplay
+      function startTimer() {
+      stopTimer();
+      timer = setInterval(next, autoplayInterval);
+      }
+      function stopTimer() { if (timer) clearInterval(timer); timer = null; }
+      function restartTimer() { stopTimer(); startTimer(); }
 
-        function plusSlides(n) {
-            slideIndex += n - 1;
-            showSlides();
-        }
+      // event listeners
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
 
-        function currentSlide(n) {
-            slideIndex = n - 1;
-            showSlides();
-        }
-    </script>
+      // keyboard
+      document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+      });
+
+      // pause on hover/focus
+      slideshow.addEventListener('mouseenter', stopTimer);
+      slideshow.addEventListener('mouseleave', startTimer);
+      slideshow.addEventListener('focusin', stopTimer);
+      slideshow.addEventListener('focusout', startTimer);
+
+      // simple touch support (swipe)
+      slidesEl.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, {passive:true});
+      slidesEl.addEventListener('touchmove', (e) => { endX = e.touches[0].clientX; }, {passive:true});
+      slidesEl.addEventListener('touchend', () => {
+      const dx = endX - startX;
+      if (Math.abs(dx) > 40) {
+      if (dx < 0) next(); else prev();
+      }
+      startX = endX = 0;
+      });
+
+      // set captions from data-caption (keeps HTML clean if you need to swap)
+      slides.forEach(s => {
+      const cap = s.getAttribute('data-caption');
+      const figcap = s.querySelector('.caption');
+      if (cap && figcap) figcap.textContent = cap;
+      });
+
+      // lazy load images (optional)
+      slides.forEach(imgWrap => {
+      const img = imgWrap.querySelector('img');
+      if (img) img.loading = 'lazy';
+      });
+
+      // init
+      update();
+      startTimer();
+
+      // expose for debugging (optional)
+      window._mySlideshow = { goTo, next, prev, startTimer, stopTimer };
+      })();
+      </script>
+    </main>
+  </div>
 </body>
 </html>
