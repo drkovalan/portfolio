@@ -1,74 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Kovalan | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Kovalan | Portfolio</title>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ----- GLOBAL RESET ----- */
+body,html {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    scroll-behavior: smooth;
+    background: #0b0f19;
+    color: #e6e6e6;
+}
+
+/* ----- LAYOUT ----- */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ----- LEFT PANEL ----- */
+.left-panel {
+    width: 300px;
+    min-height: 100vh;
+    padding: 40px 25px;
+    background: #0f1629;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile {
+    width: 140px;
+    height: 140px;
+    background: url("profile.png") center/cover;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0,255,200,0.4);
+    margin-bottom: 20px;
+}
+
+.name {
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.role {
+    font-size: 1rem;
+    color: #76ffd8;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+}
+
+.contact i {
+    margin-right: 10px;
+    color: #00ffc8;
+}
+
+/* ----- RIGHT PANEL ----- */
+.right-panel {
+    margin-left: 300px;
+    padding: 50px 30px;
+    width: calc(100% - 300px);
+}
+
+/* ----- SECTIONS ----- */
+.section {
+    padding: 40px;
+    margin-bottom: 40px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 25px rgba(0,255,180,0.05);
+    animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #00ffcc;
+}
+
+.section ul {
+    padding-left: 20px;
+    line-height: 1.7;
+}
+
+.section p {
+    line-height: 1.7;
+}
+
+/* ----- MOBILE RESPONSIVE ----- */
+@media(max-width: 900px) {
+    .left-panel {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        padding-bottom: 20px;
+    }
+
+    .right-panel {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
 
-    <!-- LEFT FIXED PANEL -->
+    <!-- LEFT PANEL -->
     <aside class="left-panel">
-        <img src="profile.png" class="profile-img">
+        <div class="profile"></div>
 
-        <h1 class="name">Dr. Kovalan</h1>
-        <p class="role">AI Researcher & Data Scientist</p>
+        <div class="name">Dr. Kovalan</div>
+        <div class="role">AI Researcher & Data Scientist</div>
 
         <div class="contact">
-            <p>Email: yourmail@gmail.com</p>
-            <p>Location: Vientiane / Thanjavur</p>
+            <p><i class="fa-solid fa-envelope"></i> yourmail@gmail.com</p>
+            <p><i class="fa-solid fa-location-dot"></i> Vientiane / Thanjavur</p>
         </div>
     </aside>
-
 
     <!-- RIGHT CONTENT -->
     <main class="right-panel">
 
-        <!-- TOP MENU -->
-        <nav class="menu">
-            <a href="#about">About</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#education">Education</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-        </nav>
-
-        <!-- SECTIONS -->
         <section id="about" class="section">
             <h2>About Me</h2>
-            <p>
-                I work at the intersection of AI, nutrition analytics, and evidence-based
-                decision-making. My passion is transforming data into insights that guide
-                governments and development partners.
-            </p>
+            <p>I work at the intersection of AI, nutrition analytics, and evidence-based
+               decision-making. I build systems that convert raw data into actionable 
+               insights for government leaders and technical teams.</p>
         </section>
 
         <section id="achievements" class="section">
             <h2>Achievements</h2>
             <ul>
-                <li>Developed district performance dashboards for 6 provinces</li>
-                <li>Created an AI-driven decision-support tool for nutrition programs</li>
-                <li>Led capacity-building sessions for 30+ provincial officials</li>
+                <li>Built district performance analytics for 6 provinces</li>
+                <li>Designed AI-supported dashboards for nutrition governance</li>
+                <li>Led training for 30+ provincial data officers</li>
             </ul>
         </section>
 
         <section id="education" class="section">
             <h2>Education</h2>
             <ul>
-                <li>Bachelor of Homeopathy</li>
-                <li>Specialization in AI & Data Science (self-research)</li>
+                <li>BHMS – Homeopathy</li>
+                <li>Self-directed research specialization in AI & Data Science</li>
             </ul>
         </section>
 
         <section id="experience" class="section">
             <h2>Experience</h2>
             <ul>
-                <li>Capacity Building Expert – Data systems strengthening</li>
+                <li>Capacity Building Expert – Nutrition data systems strengthening</li>
                 <li>Communication & Advocacy Specialist – Evidence translation</li>
-                <li>Nutrition Governance Support – Multi-sectoral coordination</li>
+                <li>Nutrition Governance Lead – Multi-sector coordination</li>
             </ul>
         </section>
 
@@ -76,13 +191,12 @@
             <h2>Projects</h2>
             <ul>
                 <li>Nutrition Data Dashboard</li>
-                <li>AI-based district ranking model</li>
-                <li>Policy Brief Generator (NLP)</li>
+                <li>AI-powered district ranking model</li>
+                <li>NLP-based policy brief generator</li>
             </ul>
         </section>
 
     </main>
-
 </div>
 
 </body>
