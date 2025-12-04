@@ -170,110 +170,99 @@
   }
   </style>
   <style>
-  /* Slideshow container */
-    .slideshow {
-  width: 85%;              /* reduce box size */
-  max-width: 650px;        /* adjust as you like */
-  height: 350px;           /* fixed height for all images */
-  margin: 20px auto;
-  overflow: hidden;
-  border-radius: 10px;
-  }
+ /* SLIDESHOW */
+.slideshow-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+    position: relative;
+}
 
-  /* FORCE ALL IMAGES TO SAME SIZE */
-  .slideshow img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;       /* IMPORTANT: crops & fits cleanly */
-  object-position: center; /* keeps center visible */
-  }
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+}
 
-  /* Single slide */
-  .slide {
-  min-width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  }
+.fade-slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
-  /* Image styling */
-  .slide img {
-  display: block;
-  width: 100%;
-  height: auto;
-  vertical-align: middle;
-  object-fit: cover;
-  }
+.fade-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: fadeEffect 1s ease-in-out;
+}
 
-  /* Caption */
-  .caption {
-  position: absolute;
-  left: 20px;
-  bottom: 18px;
-  color: #e6ffe9;
-  background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25));
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  backdrop-filter: blur(4px);
-  }
+@keyframes fadeEffect {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-  /* Controls */
-  .ctrl {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.45);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.06);
-  transition: transform .15s ease, background .15s ease;
-  z-index: 10;
-  }
-  .ctrl:hover { transform: translateY(-50%) scale(1.06); background: rgba(0,0,0,0.6); }
+/* CAPTION */
+.caption {
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.5);
+    padding: 8px 12px;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 6px;
+}
 
-  .prev { left: 14px; }
-  .next { right: 14px; }
+/* NAV BUTTONS */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 10px 14px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    transform: translateY(-50%);
+}
 
-  /* Dots / indicators */
-  .dots {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 12px;
-  display: flex;
-  gap: 8px;
-  z-index: 12;
-  }
-  .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.18);
-  cursor: pointer;
-  transition: background .15s ease, transform .15s ease;
-  }
-  .dot.active { background: #00ffd6; transform: scale(1.15); }
+.prev { left: 10px; }
+.next { right: 10px; }
 
-  /* Small responsive tweak */
-  @media (max-width: 720px) {
-  .caption { left: 12px; right: 12px; font-size: 0.9rem; bottom: 12px; }
-  .ctrl { width: 40px; height: 40px; }
-  }
+/* DOTS */
+.dots-container {
+    text-align: center;
+    margin-top: 12px;
+}
 
-  /* Optional subtle fade overlay for futuristic look */
-  .slideshow::after {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,255,200,0.02), rgba(0,0,0,0.06));
-  }
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.active-dot {
+    background-color: #333;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .slideshow-container {
+        height: 260px;
+    }
+}
+
   </style>
 </head>
 <body>
@@ -372,9 +361,135 @@
           (2003 – 2009)</li>
         </ul>
       </section>
+<!-- ===================== SLIDESHOW START ===================== -->
 
+<div class="slideshow-wrapper">
+
+    <div class="slideshow-container" id="slideshow">
+
+        <!-- Slide 1 -->
+        <div class="fade-slide">
+            <img src="slide1.png" alt="Slide 1">
+            <div class="caption">Dashboard Overview</div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="fade-slide">
+            <img src="slide2.png" alt="Slide 2">
+            <div class="caption">Scorecard System</div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="fade-slide">
+            <img src="slide3.png" alt="Slide 3">
+            <div class="caption">Infographic Design</div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="fade-slide">
+            <img src="slide4.png" alt="Slide 4">
+            <div class="caption">Monthly Analytics Summary</div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="fade-slide">
+            <img src="slide5.png" alt="Slide 5">
+            <div class="caption">Nutrition Reporting System</div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="fade-slide">
+            <img src="slide6.png" alt="Slide 6">
+            <div class="caption">Programme Dashboard</div>
+        </div>
+
+        <!-- Buttons -->
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+
+    <!-- Circle Indicators -->
+    <div class="dots-container" id="dots"></div>
+
+</div>
+
+<!-- ===================== SLIDESHOW END ===================== -->
+<script>
+  
+
+      let slideIndex = 0;
+let slides = document.getElementsByClassName("fade-slide");
+let dotsContainer = document.getElementById("dots");
+
+/* Create dots dynamically */
+for (let i = 0; i < slides.length; i++) {
+    let dot = document.createElement("span");
+    dot.classList.add("dot");
+    dot.setAttribute("onclick", "currentSlide(" + (i+1) + ")");
+    dotsContainer.appendChild(dot);
+}
+
+let dots = document.getElementsByClassName("dot");
+
+showSlides();
+
+/* AUTO-PLAY EVERY 4 SECONDS */
+function showSlides() {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+
+    if (slideIndex > slides.length) { slideIndex = 1 }
+
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active-dot");
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].classList.add("active-dot");
+
+    setTimeout(showSlides, 4000); // CHANGE SPEED HERE
+}
+
+function plusSlides(n) {
+    slideIndex += n - 1;
+    if (slideIndex < 1) slideIndex = slides.length;
+    if (slideIndex > slides.length) slideIndex = 1;
+    updateSlides();
+}
+
+function currentSlide(n) {
+    slideIndex = n;
+    updateSlides();
+}
+
+function updateSlides() {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        dots[i].classList.remove("active-dot");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].classList.add("active-dot");
+}
+
+/* TOUCH SWIPE SUPPORT */
+let startX = 0;
+
+document.getElementById("slideshow").addEventListener("touchstart", function(e) {
+    startX = e.touches[0].clientX;
+});
+
+document.getElementById("slideshow").addEventListener("touchend", function(e) {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) plusSlides(1);      // swipe left
+    if (endX - startX > 50) plusSlides(-1);     // swipe right
+});
+</script>
     </main>
   </div>
 </body>
 </html>
+
 
